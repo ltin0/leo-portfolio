@@ -1,26 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono:wght@400&family=Inter:wght@300;400;500;600&display=swap");
+
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #07090f;
+  --surface: #0d1422;
+  --surface2: #111827;
+  --border: #1e3352;
+  --green: #39ff14;
+  --cyan: #00e5ff;
+  --yellow: #ffd700;
+  --magenta: #ff2d78;
+  --purple: #b44aff;
+  --text: #c8d8e8;
+  --text-dim: #5a7a9a;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  cursor: none;
 }
+
+.cursor {
+  position: fixed; width: 12px; height: 12px;
+  background: var(--cyan); pointer-events: none; z-index: 9999;
+  transition: transform 0.1s; image-rendering: pixelated;
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 60%, 60% 100%, 0 100%);
+}
+.cursor-trail {
+  position: fixed; width: 6px; height: 6px;
+  background: var(--magenta); opacity: 0.5; pointer-events: none; z-index: 9998;
+  transition: all 0.15s ease;
+  clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 60%, 60% 100%, 0 100%);
+}
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+.skill-bar-fill {
+  height: 100%; position: relative;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.skill-bar-fill::after {
+  content: ""; position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(255,255,255,0.1) 6px, rgba(255,255,255,0.1) 8px);
+}
+.skill-bar-fill.react    { background: linear-gradient(90deg, #0d4f6e, #61dafb); }
+.skill-bar-fill.nodejs   { background: linear-gradient(90deg, #1a3d20, #68a063); }
+.skill-bar-fill.php      { background: linear-gradient(90deg, #2a2048, #8892be); }
+.skill-bar-fill.python   { background: linear-gradient(90deg, #3d3010, #ffd43b); }
+.skill-bar-fill.docker   { background: linear-gradient(90deg, #0a2e48, #2496ed); }
+.skill-bar-fill.htmlcss  { background: linear-gradient(90deg, #3d1a0a, #e34c26); }
+.skill-bar-fill.mysql    { background: linear-gradient(90deg, #3d2500, #f29111); }
+.skill-bar-fill.wordpress{ background: linear-gradient(90deg, #0a1f30, #21759b); }
+
+.scanlines {
+  position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px);
+}
+.portrait-glow {
+  position: absolute; inset: -3px;
+  border: 3px solid var(--cyan);
+  box-shadow: 0 0 20px var(--cyan), inset 0 0 20px rgba(0,229,255,0.1);
+  animation: glowPulse 2s ease-in-out infinite; pointer-events: none;
+}
+
+.music-bar { width: 3px; background: var(--cyan); transition: height 0.15s ease; height: 2px; }
+.music-player.playing .music-bar { animation: visBar 0.6s ease-in-out infinite alternate; }
+.music-player.playing .music-bar:nth-child(1) { animation-delay: 0.0s; animation-duration: 0.5s; }
+.music-player.playing .music-bar:nth-child(2) { animation-delay: 0.1s; animation-duration: 0.7s; }
+.music-player.playing .music-bar:nth-child(3) { animation-delay: 0.2s; animation-duration: 0.6s; }
+.music-player.playing .music-bar:nth-child(4) { animation-delay: 0.05s; animation-duration: 0.55s; }
+
+.npc-chat { animation: slideUp 0.2s ease; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); }
+
+.nav-link::before { content: ">"; color: var(--cyan); margin-right: 4px; opacity: 0; transition: opacity 0.2s; }
+.nav-link:hover::before { opacity: 1; }
+
+@keyframes glowPulse { 0%,100% { opacity: 1; } 50% { opacity: 0.6; } }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeOut { to { opacity: 0; pointer-events: none; } }
+@keyframes visBar { 0% { height: 2px; } 100% { height: 14px; } }

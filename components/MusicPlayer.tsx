@@ -149,11 +149,12 @@ export default function MusicPlayer() {
       <div style={{ display: "flex", alignItems: "flex-end", gap: 2, height: 16, padding: "0 4px" }} aria-hidden>
         <div className="music-bar" /><div className="music-bar" /><div className="music-bar" /><div className="music-bar" />
       </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 2, minWidth: 100 }}>
+      <div className="music-track-info" style={{ flexDirection: "column", gap: 2, minWidth: 100 }}>
         <div style={{ fontFamily: "var(--pixel)", fontSize: 7, color: "var(--cyan)", letterSpacing: 0.5 }}>♪ NOW PLAYING</div>
         <div style={{ fontFamily: "var(--mono)", fontSize: 10, color: "var(--text)", whiteSpace: "nowrap", overflow: "hidden" }}>PIXEL DREAMS — 8-BIT</div>
       </div>
       <div
+        className="music-vol"
         onClick={onVolClick}
         style={{ width: 60, height: 4, background: "var(--surface2)", border: "1px solid var(--border)", cursor: "pointer", position: "relative" }}
         title={`Volume: ${Math.round(volume * 100)}%`}

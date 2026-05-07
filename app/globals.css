@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono:wght@400&family=Inter:wght@300;400;500;600&display=swap");
-
 @import "tailwindcss";
 
 :root {
@@ -14,14 +12,91 @@
   --purple: #b44aff;
   --text: #c8d8e8;
   --text-dim: #5a7a9a;
+  --pixel: "Press Start 2P", monospace;
+  --mono: "Share Tech Mono", monospace;
 }
+
+/* ── Section padding ─────────────────────────────────── */
+.section-pad { padding: 100px 40px; }
+@media (max-width: 768px) { .section-pad { padding: 60px 16px; } }
+
+/* ── NavBar ──────────────────────────────────────────── */
+.nav-bar     { padding: 16px 40px; }
+.nav-mobile  { display: none; }
+.nav-desktop { display: flex; }
+@media (max-width: 768px) {
+  .nav-bar     { padding: 10px 16px; }
+  .nav-mobile  { display: flex; }
+  .nav-desktop { display: none; }
+}
+
+/* ── Responsive grids ────────────────────────────────── */
+.grid-about    { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; align-items: start; max-width: 1000px; }
+.grid-skills   { display: grid; grid-template-columns: repeat(2,1fr); gap: 40px; max-width: 1000px; }
+.grid-projects { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.grid-contact  { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+
+@media (max-width: 768px) {
+  .grid-about    { grid-template-columns: 1fr; gap: 24px; }
+  .grid-skills   { grid-template-columns: 1fr; gap: 20px; }
+  .grid-projects { grid-template-columns: repeat(2,1fr); gap: 16px; }
+  .grid-contact  { grid-template-columns: 1fr; gap: 24px; }
+}
+@media (max-width: 480px) {
+  .grid-projects { grid-template-columns: 1fr; }
+}
+
+/* ── Experience timeline ─────────────────────────────── */
+.timeline { max-width: 800px; position: relative; padding-left: 40px; }
+@media (max-width: 768px) { .timeline { padding-left: 28px; } }
+
+/* ── Section header ──────────────────────────────────── */
+.sec-hdr       { display: flex; align-items: center; gap: 16px; margin-bottom: 60px; flex-wrap: wrap; }
+.sec-hdr h2    { font-size: 18px; }
+@media (max-width: 768px) {
+  .sec-hdr     { margin-bottom: 28px; gap: 10px; }
+  .sec-hdr h2  { font-size: 13px; }
+  .sec-hdr .sec-line { display: none; }
+}
+
+/* ── NPC Companion ───────────────────────────────────── */
+.npc-window { width: 340px; border: 2px solid var(--cyan); background: var(--bg); }
+@media (max-width: 480px) { .npc-window { width: calc(100vw - 48px); } }
+
+/* ── Music player ────────────────────────────────────── */
+@media (max-width: 480px) {
+  .music-player { max-width: 160px; }
+  .music-track-info { display: none; }
+  .music-vol  { display: none; }
+}
+
+/* ── Responsive hero ─────────────────────────────────── */
+.hero-section {
+  min-height: 100vh; display: flex; align-items: center;
+  justify-content: center; padding: 100px 40px 60px;
+  position: relative; z-index: 1;
+}
+.hero-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.hero-char-card { position: relative; width: 320px; }
+.hero-name { font-size: 28px; }
+
+@media (max-width: 768px) {
+  .hero-section { padding: 80px 16px 40px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 36px; }
+  .hero-char-card { width: 100%; max-width: 280px; margin: 0 auto; }
+  .hero-name { font-size: 18px !important; }
+}
+/* ─────────────────────────────────────────────────────── */
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: "Inter", sans-serif;
+  font-family: var(--inter), sans-serif;
   overflow-x: hidden;
   cursor: none;
 }

@@ -17,11 +17,12 @@ export default function SkillsSection() {
   return (
     <section
       id="skills"
-      style={{ padding: "100px 40px", position: "relative", zIndex: 1 }}
+      className="section-pad"
+      style={{ position: "relative", zIndex: 1 }}
     >
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <SectionHeader num={t.skills.num} title={t.skills.title} em={t.skills.em} />
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(2,1fr)", gap: 40, maxWidth: 1000 }}>
+        <div className="grid-skills">
           {Object.entries(byCategory).map(([cat, skills]) => (
             <div key={cat} className="reveal">
               <div style={{ fontFamily: "var(--pixel)", fontSize: 8, color: "var(--text-dim)", marginBottom: 20, display: "flex", alignItems: "center", gap: 8 }}>

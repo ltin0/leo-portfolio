@@ -10,17 +10,19 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      style={{ padding: "100px 40px", background: "var(--surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", position: "relative", zIndex: 1 }}
+      className="section-pad"
+      style={{ background: "var(--surface)", borderTop: "1px solid var(--border)", borderBottom: "1px solid var(--border)", position: "relative", zIndex: 1 }}
     >
       <div style={{ maxWidth: 1100, margin: "0 auto" }}>
         <SectionHeader num={a.num} title={a.title} em={a.em} />
-        <div style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: 60, alignItems: "start", maxWidth: 1000 }}>
+        <div className="grid-about">
+
           {/* Quest log */}
           <div className="reveal" style={{ border: "1px solid var(--border)", background: "var(--bg)" }}>
             <div style={{ fontFamily: "var(--pixel)", fontSize: 8, padding: "12px 16px", background: "var(--surface2)", color: "var(--yellow)", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", gap: 8 }}>
               ◆ {a.logHeader}
             </div>
-            <div style={{ padding: 24, fontFamily: "var(--body)", fontSize: 14, lineHeight: 1.9, color: "var(--text)" }}>
+            <div style={{ padding: 24, fontFamily: "var(--mono)", fontSize: 14, lineHeight: 1.9, color: "var(--text)" }}>
               <p>{a.p1}</p>
               <p style={{ marginTop: 16 }}>{a.p2}</p>
               <p style={{ marginTop: 16 }}>{a.p3}</p>
@@ -54,7 +56,8 @@ export default function AboutSection() {
               ].map(({ k, v, href }) => (
                 <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid var(--border)" }}>
                   <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--text-dim)" }}>{k}</span>
-                  <a href={href} target="_blank" rel="noopener noreferrer" style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--cyan)", textDecoration: "none" }}>{v}</a>
+                  <a href={href} target="_blank" rel="noopener noreferrer"
+                    style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--cyan)", textDecoration: "none" }}>{v}</a>
                 </div>
               ))}
             </div>

@@ -1,6 +1,28 @@
 import type { Metadata } from "next";
+import { Press_Start_2P, Share_Tech_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/context";
+
+const pressStart = Press_Start_2P({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--pixel",
+  display: "swap",
+});
+
+const shareTech = Share_Tech_Mono({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--mono",
+  display: "swap",
+});
+
+const inter = Inter({
+  weight: ["300", "400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Leonardo Tino — Full Stack Engineer",
@@ -15,7 +37,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" className={`${pressStart.variable} ${shareTech.variable} ${inter.variable}`}>
       <body>
         <LanguageProvider>
           {children}

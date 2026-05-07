@@ -23,6 +23,8 @@ export const TRANSLATIONS = {
       score: "SCORE", gameOver: "GAME OVER",
       hint: "WASD ou ← ↑ ↓ → para mover · 🟡 coma os commits",
       dayHint: "minhas contribuições", less: "menos", more: "mais",
+      pressSpace: "APERTE ESPAÇO PARA JOGAR",
+      tryAgain: "TENTAR NOVAMENTE", escHint: "ESC · VER CONTRIBUIÇÕES",
     },
     about: {
       num: "01.", title: "SOBRE", em: "MIM",
@@ -76,6 +78,8 @@ export const TRANSLATIONS = {
       greeting: "Olá, aventureiro! Sou o NPC Companion de Leonardo. Pode me perguntar qualquer coisa sobre ele! ⚔️",
       placeholder: "Faça uma pergunta...", send: "SEND",
       typing: "NPC digitando...", errorMsg: "Erro ao contatar o oráculo. Tente novamente!",
+      wip: "Olá! Ainda estou trabalhando na implementação do meu bot para responder as perguntas. Enquanto isso, fique à vontade para me chamar no WhatsApp!",
+      whatsappBtn: "[ CHAMAR NO WHATSAPP ]",
     },
     footer: "MADE WITH ❤ BY LEONARDO TINO · 2025",
   },
@@ -101,6 +105,8 @@ export const TRANSLATIONS = {
       score: "SCORE", gameOver: "GAME OVER",
       hint: "WASD or ← ↑ ↓ → to move · 🟡 eat the commits",
       dayHint: "my contributions", less: "less", more: "more",
+      pressSpace: "PRESS SPACE TO PLAY",
+      tryAgain: "TRY AGAIN", escHint: "ESC · SEE CONTRIBUTIONS",
     },
     about: {
       num: "01.", title: "ABOUT", em: "ME",
@@ -154,6 +160,8 @@ export const TRANSLATIONS = {
       greeting: "Hello, adventurer! I am Leonardo's NPC Companion. Ask me anything about him! ⚔️",
       placeholder: "Ask a question...", send: "SEND",
       typing: "NPC typing...", errorMsg: "Failed to contact the oracle. Try again!",
+      wip: "Hi! I'm still working on my bot implementation. In the meantime, feel free to reach me on WhatsApp!",
+      whatsappBtn: "[ OPEN WHATSAPP ]",
     },
     footer: "MADE WITH ❤ BY LEONARDO TINO · 2025",
   },
@@ -163,12 +171,12 @@ export type Translations = {
   bootMsgs: readonly string[];
   nav: { about: string; skills: string; projects: string; xp: string; contact: string };
   hero: { selectHero: string; p1Confirmed: string; nameLabel: string; classLine: string; pressStart: string; pressStartTrail: string; greeting: string; role: string; desc: string; stat1: string; stat2: string; stat3: string; ctaProjects: string; ctaContact: string };
-  contrib: { title: string; play: string; stop: string; retry: string; score: string; gameOver: string; hint: string; dayHint: string; less: string; more: string };
+  contrib: { title: string; play: string; stop: string; retry: string; score: string; gameOver: string; hint: string; dayHint: string; less: string; more: string; pressSpace: string; tryAgain: string; escHint: string };
   about: { num: string; title: string; em: string; logHeader: string; p1: string; p2: string; p3: string; cardTitle: string; location: string; locationVal: string; available: string; availableVal: string; languages: string; languagesVal: string; linksTitle: string };
   skills: { num: string; title: string; em: string };
   projects: { num: string; title: string; em: string; github: string; demo: string; list: readonly { title: string; desc: string }[] };
   exp: { num: string; title: string; em: string; list: readonly { year: string; role: string; company: string; desc: string }[] };
   contact: { num: string; title: string; em: string; formHeader: string; name: string; namePh: string; email: string; emailPh: string; message: string; messagePh: string; send: string; sending: string; sent: string; sentNote: string; errorNote: string; whoami: string; whoamiAns: string; listCmd: string; statusCmd: string; statusAns: string };
-  npc: { tooltip: string; title: string; greeting: string; placeholder: string; send: string; typing: string; errorMsg: string };
+  npc: { tooltip: string; title: string; greeting: string; placeholder: string; send: string; typing: string; errorMsg: string; wip: string; whatsappBtn: string };
   footer: string;
 };

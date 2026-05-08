@@ -101,17 +101,28 @@ body {
   cursor: none;
 }
 
+* { cursor: none !important; }
+
 .cursor {
   position: fixed; width: 12px; height: 12px;
   background: var(--cyan); pointer-events: none; z-index: 9999;
-  transition: transform 0.1s; image-rendering: pixelated;
+  transition: transform 0.12s ease, background 0.12s ease; image-rendering: pixelated;
   clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 60%, 60% 100%, 0 100%);
+}
+.cursor.cursor--hover {
+  transform: scale(1.7);
+  background: var(--yellow);
 }
 .cursor-trail {
   position: fixed; width: 6px; height: 6px;
   background: var(--magenta); opacity: 0.5; pointer-events: none; z-index: 9998;
   transition: all 0.15s ease;
   clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 60%, 60% 100%, 0 100%);
+}
+.cursor-trail.cursor--hover {
+  transform: scale(1.5);
+  background: var(--cyan);
+  opacity: 0.7;
 }
 
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }

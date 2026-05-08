@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Background -->
+  <rect width="32" height="32" fill="#07090f"/>
+  <!-- Border -->
+  <rect x="1" y="1" width="30" height="1" fill="#00e5ff" opacity="0.7"/>
+  <rect x="1" y="30" width="30" height="1" fill="#00e5ff" opacity="0.7"/>
+  <rect x="1" y="1" width="1" height="30" fill="#00e5ff" opacity="0.7"/>
+  <rect x="30" y="1" width="1" height="30" fill="#00e5ff" opacity="0.7"/>
+  <!-- Pixel ">" in cyan — 2px cells -->
+  <rect x="5"  y="9"  width="2" height="2" fill="#00e5ff"/>
+  <rect x="7"  y="11" width="2" height="2" fill="#00e5ff"/>
+  <rect x="9"  y="13" width="2" height="2" fill="#00e5ff"/>
+  <rect x="11" y="15" width="2" height="2" fill="#00e5ff"/>
+  <rect x="9"  y="17" width="2" height="2" fill="#00e5ff"/>
+  <rect x="7"  y="19" width="2" height="2" fill="#00e5ff"/>
+  <rect x="5"  y="21" width="2" height="2" fill="#00e5ff"/>
+  <!-- Cursor block "_" in yellow -->
+  <rect x="15" y="21" width="12" height="3" fill="#ffd700"/>
+  <!-- Scanline accent -->
+  <rect x="2" y="2" width="28" height="1" fill="#00e5ff" opacity="0.08"/>
+  <rect x="2" y="6" width="28" height="1" fill="#00e5ff" opacity="0.08"/>
+  <rect x="2" y="10" width="28" height="1" fill="#00e5ff" opacity="0.08"/>
+  <rect x="2" y="14" width="28" height="1" fill="#00e5ff" opacity="0.08"/>
+  <rect x="2" y="18" width="28" height="1" fill="#00e5ff" opacity="0.08"/>
+  <rect x="2" y="22" width="28" height="1" fill="#00e5ff" opacity="0.08"/>
+  <rect x="2" y="26" width="28" height="1" fill="#00e5ff" opacity="0.08"/>
+</svg>

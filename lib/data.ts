@@ -10,6 +10,7 @@ export interface ProjectMeta {
   rarity: "legendary" | "epic" | "rare";
   icon: string;
   link?: string;
+  github?: string;
 }
 
 export interface ExpMeta {
@@ -46,28 +47,38 @@ export const SKILLS_DATA: Skill[] = [
 ];
 
 export const PROJECTS_META: ProjectMeta[] = [
-  // Ecossistema Ruk
-  { tags: ["React", "Node.js", "JWT", "API"],       rarity: "legendary", icon: "✍️",  link: "https://ruk.com.br" },
-  { tags: ["PHP", "REST API", "MySQL", "Legal"],    rarity: "legendary", icon: "⚖️",  link: "https://ruk.com.br" },
-  { tags: ["Next.js", "SEO", "Performance", "UX"],  rarity: "epic",      icon: "🌐",  link: "https://ruk.com.br" },
-  // Apps & Dashboards
-  { tags: ["React", "Finance", "Calculator"],       rarity: "epic",      icon: "💰",  link: "https://play.google.com/store/apps/details?id=br.com.amortizei" },
-  { tags: ["PHP", "FGTS", "Secure API"],            rarity: "rare",      icon: "🏦",  link: "https://consultafgts.mistermoney.app" },
-  { tags: ["WordPress", "SAP", "REST API", "ERP"],  rarity: "legendary", icon: "📊",  link: "https://www.qaaps.com.br" },
-  // Portais
-  { tags: ["WordPress", "SEO", "High Traffic", "NGINX"], rarity: "epic", icon: "📰", link: "https://abcmais.com" },
-  { tags: ["WordPress", "Core Web Vitals", "MySQL"],     rarity: "rare", icon: "👗", link: "https://fashionbubbles.com" },
-  // Institucionais / Landing Pages
-  { tags: ["React", "HTML/CSS", "SEO"],             rarity: "rare",      icon: "🏢",  link: "https://agencia3graus.com.br" },
-  { tags: ["React", "UI/UX", "Animations"],         rarity: "epic",      icon: "✨",  link: "https://mudhealth.com.br" },
-  { tags: ["HTML/CSS", "Conversion", "Mobile"],     rarity: "rare",      icon: "🐕",  link: "https://lokidogschool.com.br" },
-  { tags: ["HTML/CSS", "Conversion", "Landing"],    rarity: "rare",      icon: "🔩",  link: "https://darkgray-jay-165588.hostingersite.com" },
+  // Ecossistema Ruk (3)
+  { tags: ["React", "Node.js", "JWT", "API"],              rarity: "legendary", icon: "✍️",  link: "https://app.ruk.com.br" },
+  { tags: ["PHP", "REST API", "MySQL", "Legal"],           rarity: "legendary", icon: "⚖️",  link: "https://app.ruk.com.br" },
+  { tags: ["Next.js", "SEO", "Performance", "UX"],         rarity: "epic",      icon: "🌐",  link: "https://ruk.com.br" },
+  // Apps & Dashboards (3)
+  { tags: ["React", "Finance", "Calculator"],              rarity: "epic",      icon: "💰",  link: "https://play.google.com/store/apps/details?id=br.com.amortizei", github: "https://github.com/ltin0/app-amortizei/" },
+  { tags: ["PHP", "FGTS", "Secure API"],                   rarity: "rare",      icon: "🏦",  link: "https://consultafgts.mistermoney.app",                            github: "https://github.com/ltin0/mister-monkey-app" },
+  { tags: ["WordPress", "SAP", "REST API", "ERP"],         rarity: "legendary", icon: "📊",  link: "https://www.qaaps.com.br",                                       github: "https://github.com/ltin0/qaaps-dasbhoard/tree/master" },
+  // Portais (3)
+  { tags: ["WordPress", "SEO", "High Traffic", "NGINX"],   rarity: "epic",      icon: "📰",  link: "https://abcmais.com" },
+  { tags: ["WordPress", "Core Web Vitals", "MySQL"],        rarity: "rare",      icon: "👗",  link: "https://fashionbubbles.com" },
+  { tags: ["WordPress", "SEO", "Blog"],                    rarity: "rare",      icon: "🚗",  link: "https://ituran.com.br/blog/" },
+  // Institucionais / Landing Pages (7)
+  { tags: ["React", "HTML/CSS", "SEO"],                    rarity: "rare",      icon: "🏢",  link: "https://agencia3graus.com.br" },
+  { tags: ["React", "Landing Page", "Conversion"],         rarity: "rare",      icon: "📈",  link: "https://negocios.agencia3graus.com.br" },
+  { tags: ["HTML/CSS", "JavaScript", "SEO"],               rarity: "rare",      icon: "🔧",  link: "https://qualitysmi.com.br" },
+  { tags: ["React", "UI/UX", "Animations"],                rarity: "epic",      icon: "🏥",  link: "https://mudhealth.com.br" },
+  { tags: ["React", "UI/UX", "Performance"],               rarity: "epic",      icon: "✈️",  link: "https://hyperflow.global" },
+  { tags: ["HTML/CSS", "Conversion", "Mobile"],            rarity: "rare",      icon: "🐕",  link: "https://lokidogschool.com.br" },
+  { tags: ["HTML/CSS", "Conversion", "B2B"],               rarity: "rare",      icon: "🔩",  link: "https://darkgray-jay-165588.hostingersite.com" },
+  // Lojas Virtuais (3)
+  { tags: ["WooCommerce", "WordPress", "E-commerce"],      rarity: "epic",      icon: "🛍️", link: "https://shoplearez.com.br" },
+  { tags: ["WooCommerce", "WordPress", "Beauty"],          rarity: "rare",      icon: "💄",  link: "https://artofbeauty.com.br" },
+  { tags: ["WooCommerce", "WordPress", "Premium"],         rarity: "epic",      icon: "🥃",  link: "https://divinebourbon.com" },
 ];
 
 export const EXP_META: ExpMeta[] = [
-  { tags: ["React", "Node.js", "PHP", "WordPress", "Docker"] },
-  { tags: ["React", "HTML/CSS", "WordPress", "PHP"] },
-  { tags: ["PHP", "MySQL", "HTML", "CSS", "JS"] },
+  { tags: ["React", "Next.js", "TypeScript", "NestJS", "GraphQL", "Prisma", "TailwindCSS", "Docker", "Linux", "E2E Tests"] },
+  { tags: ["PHP", "WordPress", "JavaScript", "MySQL", "Docker", "NGINX", "Git", "Bitbucket", "SEO"] },
+  { tags: ["PHP", "WordPress", "WooCommerce", "Elementor", "JavaScript", "REST API", "Cloudflare", "NGINX"] },
+  { tags: ["Tech Lead", "CI/CD", "Code Review", "SEO", "Analytics"] },
+  { tags: ["HTML", "CSS", "JavaScript", "PHP", "SEO"] },
 ];
 
 export const NPC_CONTEXT = {

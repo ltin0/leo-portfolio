@@ -8,10 +8,11 @@ const rarityColors = { legendary: "var(--yellow)", epic: "var(--purple)", rare: 
 const rarityBg    = { legendary: "rgba(255,215,0,0.08)", epic: "rgba(180,74,255,0.08)", rare: "rgba(0,229,255,0.08)" };
 
 const CATEGORIES = [
-  { label: "ECOSSISTEMA RUK",    count: 3 },
-  { label: "APPS & DASHBOARDS",  count: 3 },
-  { label: "PORTAIS",            count: 2 },
-  { label: "INSTITUCIONAIS",     count: 4 },
+  { label: "ECOSSISTEMA RUK",         count: 3 },
+  { label: "APPS & DASHBOARDS",       count: 3 },
+  { label: "PORTAIS DE CONTEÚDO",     count: 3 },
+  { label: "INSTITUCIONAIS / LANDING PAGES", count: 7 },
+  { label: "LOJAS VIRTUAIS",          count: 3 },
 ];
 
 export default function ProjectsSection() {
@@ -83,6 +84,12 @@ export default function ProjectsSection() {
                       </div>
 
                       <div style={{ padding: "10px 12px", borderTop: "1px solid var(--border)", display: "flex", justifyContent: "flex-end", gap: 12 }}>
+                        {meta.github && (
+                          <a href={meta.github} target="_blank" rel="noopener noreferrer"
+                            style={{ fontFamily: "var(--pixel)", fontSize: 7, color: "var(--text-dim)", textDecoration: "none" }}>
+                            {t.projects.github}
+                          </a>
+                        )}
                         {meta.link && (
                           <a href={meta.link} target="_blank" rel="noopener noreferrer"
                             style={{ fontFamily: "var(--pixel)", fontSize: 7, color: "var(--cyan)", textDecoration: "none" }}>

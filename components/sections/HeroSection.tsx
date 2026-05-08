@@ -115,9 +115,9 @@ export default function HeroSection() {
               <PixelBtn href="#projects" variant="primary">{t.hero.ctaProjects}</PixelBtn>
               <PixelBtn href="#contact" variant="secondary">{t.hero.ctaContact}</PixelBtn>
             </div>
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+            <div>
               <a
-                href="/cv-leonardo-tino-pt.pdf"
+                href={lang === "pt" ? "/cv-leonardo-tino-pt.pdf" : "/cv-leonardo-tino-en.pdf"}
                 download
                 style={{
                   fontFamily: "var(--pixel)", fontSize: 7, color: "var(--yellow)",
@@ -126,19 +126,7 @@ export default function HeroSection() {
                   display: "inline-flex", alignItems: "center", gap: 6,
                 }}
               >
-                ↓ {t.hero.cvPt}
-              </a>
-              <a
-                href="/cv-leonardo-tino-en.pdf"
-                download
-                style={{
-                  fontFamily: "var(--pixel)", fontSize: 7, color: "var(--text-dim)",
-                  border: "1px solid var(--border)", padding: "8px 12px",
-                  textDecoration: "none", letterSpacing: 0.5,
-                  display: "inline-flex", alignItems: "center", gap: 6,
-                }}
-              >
-                ↓ {t.hero.cvEn}
+                ↓ {lang === "pt" ? t.hero.cvPt : t.hero.cvEn}
               </a>
             </div>
           </div>

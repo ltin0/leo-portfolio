@@ -71,7 +71,7 @@ function ContactForm() {
 }
 
 function Terminal() {
-  const { t } = useT();
+  const { t, lang } = useT();
   const c = t.contact;
 
   return (
@@ -104,6 +104,20 @@ function Terminal() {
           <span style={{ color: "var(--text)" }}>{c.statusCmd}</span>
         </div>
         <div style={{ paddingLeft: 20, marginBottom: 16, color: "var(--green)" }}>{c.statusAns}</div>
+
+        <div style={{ display: "flex", gap: 8, marginBottom: 8 }}>
+          <span style={{ color: "var(--green)" }}>lt@portfolio:~$</span>
+          <span style={{ color: "var(--text)" }}>{c.cvCmd}</span>
+        </div>
+        <div style={{ paddingLeft: 20, marginBottom: 16 }}>
+          <a
+            href={lang === "pt" ? "/cv-leonardo-tino-pt.pdf" : "/cv-leonardo-tino-en.pdf"}
+            download
+            style={{ color: "var(--yellow)", textDecoration: "none", fontFamily: "var(--mono)", fontSize: 13 }}
+          >
+            {c.cvLabel}
+          </a>
+        </div>
 
         <div style={{ display: "flex", gap: 8 }}>
           <span style={{ color: "var(--green)" }}>lt@portfolio:~$</span>

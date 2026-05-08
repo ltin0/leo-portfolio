@@ -17,14 +17,32 @@ export interface ExpMeta {
 }
 
 export const SKILLS_DATA: Skill[] = [
-  { name: "React",      pct: 90, cls: "react",     cat: "FRONT-END" },
-  { name: "HTML / CSS", pct: 95, cls: "htmlcss",   cat: "FRONT-END" },
-  { name: "Node.js",    pct: 85, cls: "nodejs",    cat: "BACK-END"  },
-  { name: "PHP",        pct: 80, cls: "php",        cat: "BACK-END"  },
-  { name: "Python",     pct: 70, cls: "python",     cat: "BACK-END"  },
-  { name: "MySQL",      pct: 80, cls: "mysql",      cat: "DATA"      },
-  { name: "Docker",     pct: 75, cls: "docker",     cat: "INFRA"     },
-  { name: "WordPress",  pct: 85, cls: "wordpress",  cat: "CMS"       },
+  // FRONT-END
+  { name: "React",       pct: 90, cls: "react",      cat: "FRONT-END" },
+  { name: "Next.js",     pct: 85, cls: "nextjs",     cat: "FRONT-END" },
+  { name: "TypeScript",  pct: 80, cls: "typescript", cat: "FRONT-END" },
+  { name: "HTML / CSS",  pct: 95, cls: "htmlcss",    cat: "FRONT-END" },
+  { name: "Tailwind",    pct: 88, cls: "tailwind",   cat: "FRONT-END" },
+  // BACK-END
+  { name: "Node.js",     pct: 85, cls: "nodejs",     cat: "BACK-END"  },
+  { name: "PHP",         pct: 80, cls: "php",         cat: "BACK-END"  },
+  { name: "Laravel",     pct: 72, cls: "laravel",    cat: "BACK-END"  },
+  { name: "Python",      pct: 70, cls: "python",     cat: "BACK-END"  },
+  { name: "REST API",    pct: 90, cls: "restapi",    cat: "BACK-END"  },
+  // DATA
+  { name: "MySQL",       pct: 82, cls: "mysql",      cat: "DATA"      },
+  { name: "PostgreSQL",  pct: 72, cls: "postgresql", cat: "DATA"      },
+  // INFRA
+  { name: "Docker",      pct: 78, cls: "docker",     cat: "INFRA"     },
+  { name: "NGINX",       pct: 80, cls: "nginx",      cat: "INFRA"     },
+  { name: "Linux",       pct: 82, cls: "linux",      cat: "INFRA"     },
+  { name: "Git",         pct: 92, cls: "git",        cat: "INFRA"     },
+  // CMS
+  { name: "WordPress",   pct: 88, cls: "wordpress",  cat: "CMS"       },
+  { name: "WooCommerce", pct: 82, cls: "woocommerce",cat: "CMS"       },
+  // TOOLS
+  { name: "Figma",       pct: 74, cls: "figma",      cat: "TOOLS"     },
+  { name: "SEO / Perf",  pct: 86, cls: "seo",        cat: "TOOLS"     },
 ];
 
 export const PROJECTS_META: ProjectMeta[] = [

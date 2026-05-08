@@ -125,14 +125,26 @@ body {
   content: ""; position: absolute; inset: 0;
   background: repeating-linear-gradient(90deg, transparent, transparent 6px, rgba(255,255,255,0.1) 6px, rgba(255,255,255,0.1) 8px);
 }
-.skill-bar-fill.react    { background: linear-gradient(90deg, #0d4f6e, #61dafb); }
-.skill-bar-fill.nodejs   { background: linear-gradient(90deg, #1a3d20, #68a063); }
-.skill-bar-fill.php      { background: linear-gradient(90deg, #2a2048, #8892be); }
-.skill-bar-fill.python   { background: linear-gradient(90deg, #3d3010, #ffd43b); }
-.skill-bar-fill.docker   { background: linear-gradient(90deg, #0a2e48, #2496ed); }
-.skill-bar-fill.htmlcss  { background: linear-gradient(90deg, #3d1a0a, #e34c26); }
-.skill-bar-fill.mysql    { background: linear-gradient(90deg, #3d2500, #f29111); }
-.skill-bar-fill.wordpress{ background: linear-gradient(90deg, #0a1f30, #21759b); }
+.skill-bar-fill.react      { background: linear-gradient(90deg, #0d4f6e, #61dafb); }
+.skill-bar-fill.nextjs     { background: linear-gradient(90deg, #111827, #e2e8f0); }
+.skill-bar-fill.typescript { background: linear-gradient(90deg, #0b2040, #3178c6); }
+.skill-bar-fill.tailwind   { background: linear-gradient(90deg, #0b2f3a, #38bdf8); }
+.skill-bar-fill.htmlcss    { background: linear-gradient(90deg, #3d1a0a, #e34c26); }
+.skill-bar-fill.nodejs     { background: linear-gradient(90deg, #1a3d20, #68a063); }
+.skill-bar-fill.php        { background: linear-gradient(90deg, #2a2048, #8892be); }
+.skill-bar-fill.laravel    { background: linear-gradient(90deg, #3d0a0a, #ff2d20); }
+.skill-bar-fill.python     { background: linear-gradient(90deg, #3d3010, #ffd43b); }
+.skill-bar-fill.restapi    { background: linear-gradient(90deg, #0a2e2e, #00e5ff); }
+.skill-bar-fill.mysql      { background: linear-gradient(90deg, #3d2500, #f29111); }
+.skill-bar-fill.postgresql { background: linear-gradient(90deg, #0b1f3a, #336791); }
+.skill-bar-fill.docker     { background: linear-gradient(90deg, #0a2e48, #2496ed); }
+.skill-bar-fill.nginx      { background: linear-gradient(90deg, #0a2e18, #009900); }
+.skill-bar-fill.linux      { background: linear-gradient(90deg, #2a2200, #f9c646); }
+.skill-bar-fill.git        { background: linear-gradient(90deg, #2e1a0a, #f05032); }
+.skill-bar-fill.wordpress  { background: linear-gradient(90deg, #0a1f30, #21759b); }
+.skill-bar-fill.woocommerce{ background: linear-gradient(90deg, #2a0a30, #9b5c8f); }
+.skill-bar-fill.figma      { background: linear-gradient(90deg, #2e0a2e, #ff7262); }
+.skill-bar-fill.seo        { background: linear-gradient(90deg, #0a2e18, #39ff14); }
 
 .scanlines {
   position: absolute; inset: 0; pointer-events: none;

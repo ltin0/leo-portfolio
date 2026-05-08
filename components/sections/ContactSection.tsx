@@ -17,11 +17,18 @@ function ContactForm() {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
     setStatus("sending");
-    await new Promise((r) => setTimeout(r, 1200));
-    const mailto = `mailto:leo_tino@outlook.com.br?subject=Contato%20-%20${encodeURIComponent(form.name)}&body=${encodeURIComponent(form.message + "\n\n— " + form.email)}`;
-    window.location.href = mailto;
-    setStatus("sent");
-    setForm({ name: "", email: "", message: "" });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error();
+      setStatus("sent");
+      setForm({ name: "", email: "", message: "" });
+    } catch {
+      setStatus("error");
+    }
   };
 
   const inputStyle: React.CSSProperties = {

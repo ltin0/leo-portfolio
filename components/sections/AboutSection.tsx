@@ -4,8 +4,10 @@ import { useT } from "@/lib/context";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 export default function AboutSection() {
-  const { t } = useT();
+  const { t, lang } = useT();
   const a = t.about;
+  const cvHref = lang === "pt" ? "/cv-leonardo-tino-pt.pdf" : "/cv-leonardo-tino-en.pdf";
+  const cvLabel = lang === "pt" ? "cv-leonardo-tino-pt.pdf" : "cv-leonardo-tino-en.pdf";
 
   return (
     <section
@@ -53,11 +55,13 @@ export default function AboutSection() {
                 { k: "GitHub",   v: "@ltin0",         href: "https://github.com/ltin0" },
                 { k: "LinkedIn", v: "leonardo-tino",  href: "https://www.linkedin.com/in/leonardo-tino/" },
                 { k: "WhatsApp", v: "11985688911",     href: "https://wa.me/5511985688911" },
+                { k: "CV",       v: cvLabel,           href: cvHref },
               ].map(({ k, v, href }) => (
                 <div key={k} style={{ display: "flex", justifyContent: "space-between", padding: "8px 0", borderBottom: "1px solid var(--border)" }}>
                   <span style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--text-dim)" }}>{k}</span>
                   <a href={href} target="_blank" rel="noopener noreferrer"
-                    style={{ fontFamily: "var(--mono)", fontSize: 11, color: "var(--cyan)", textDecoration: "none" }}>{v}</a>
+                    {...(k === "CV" ? { download: true } : {})}
+                    style={{ fontFamily: "var(--mono)", fontSize: 11, color: k === "CV" ? "var(--yellow)" : "var(--cyan)", textDecoration: "none" }}>{v}</a>
                 </div>
               ))}
             </div>

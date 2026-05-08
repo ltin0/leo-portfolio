@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Press_Start_2P, Share_Tech_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "@/lib/context";
+import EasterEgg from "@/components/EasterEgg";
+import SourceComment from "@/components/SourceComment";
 
 const pressStart = Press_Start_2P({
   weight: "400",
@@ -40,7 +42,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${pressStart.variable} ${shareTech.variable} ${inter.variable}`}>
       <body>
         <LanguageProvider>
+          <SourceComment />
           {children}
+          <EasterEgg />
         </LanguageProvider>
       </body>
     </html>

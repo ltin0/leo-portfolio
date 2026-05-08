@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useT } from "@/lib/context";
 import Typewriter from "@/components/ui/Typewriter";
 import ContribSnake from "@/components/ContribSnake";
@@ -44,6 +44,7 @@ function PressStartHint() {
 export default function HeroSection() {
   const { t, lang } = useT();
   const [snakeRevealed, setSnakeRevealed] = useState(false);
+  const snakeStartRef = useRef<(() => void) | null>(null);
 
   return (
     <section id="hero" className="hero-section">
@@ -134,8 +135,15 @@ export default function HeroSection() {
 
         {/* GitHub snake */}
         <div className="reveal" style={{ marginTop: 60 }}>
-          <ContribSnake onReveal={() => setSnakeRevealed(true)} />
-          {!snakeRevealed && <PressStartHint />}
+          <ContribSnake onReveal={() => setSnakeRevealed(true)} startRef={snakeStartRef} />
+          {!snakeRevealed && (
+            <div
+              onTouchStart={(e) => { e.preventDefault(); snakeStartRef.current?.(); }}
+              style={{ touchAction: "none" }}
+            >
+              <PressStartHint />
+            </div>
+          )}
         </div>
       </div>
     </section>

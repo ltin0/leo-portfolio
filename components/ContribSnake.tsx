@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, useEffect, useCallback, useMemo } from "react";
+import { useRef, useState, useEffect, useCallback, useMemo, MutableRefObject } from "react";
 import { useT } from "@/lib/context";
 import { generateContribData, CONTRIB_COLORS } from "@/lib/data";
 
@@ -11,7 +11,7 @@ const DESKTOP = { WEEKS: 53, CELL: 12, GAP: 2 } as const;
 const MOBILE  = { WEEKS: 22, CELL: 16, GAP: 3 } as const;
 
 interface Pos { x: number; y: number; }
-interface Props { onReveal?: () => void; }
+interface Props { onReveal?: () => void; startRef?: MutableRefObject<(() => void) | null>; }
 
 function spawnFood(snake: Pos[], weeks: number, days: number): Pos {
   while (true) {
@@ -39,10 +39,9 @@ function DPadBtn({ label, onPress }: { label: string; onPress: () => void }) {
   );
 }
 
-export default function ContribSnake({ onReveal }: Props) {
+export default function ContribSnake({ onReveal, startRef }: Props) {
   const { t } = useT();
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const sentinelRef = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [countdown, setCountdown] = useState<number | null>(null);
@@ -117,17 +116,18 @@ export default function ContribSnake({ onReveal }: Props) {
 
   const start = useCallback(() => {
     const { WEEKS } = cfg;
-    // Mobile: use last WEEKS columns of the full grid
     const full = baseGridRef.current;
     gridRef.current = full.length >= WEEKS
       ? full.slice(-WEEKS).map((col) => [...col])
       : full.map((col) => [...col]);
+    setRevealed(true);
     setGameOver(false);
     setScore(0);
     setPlaying(false);
     stateRef.current = null;
     setCountdown(3);
-  }, [cfg]);
+    onReveal?.();
+  }, [cfg, onReveal]);
 
   const stop = useCallback(() => {
     setPlaying(false);
@@ -148,23 +148,11 @@ export default function ContribSnake({ onReveal }: Props) {
     return () => clearTimeout(timer);
   }, [countdown, beginGame]);
 
-  // First reveal — auto-start only on desktop; on touch devices just show the grid
-  useEffect(() => {
-    if (revealed) { onReveal?.(); if (!isTouch) start(); }
-  }, [revealed]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Reveal when section scrolls into view (replaces global touchstart listener)
+  // Expose start() so HeroSection can trigger it from the mobile hint tap
   useEffect(() => {
-    if (revealed) return;
-    const el = sentinelRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setRevealed(true); },
-      { threshold: 0.3 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [revealed]);
+    if (startRef) startRef.current = start;
+  }, [startRef, start]);
 
   // Game loop
   useEffect(() => {
@@ -234,7 +222,7 @@ export default function ContribSnake({ onReveal }: Props) {
       }
       if (e.code !== "Space" && e.key !== " ") return;
       e.preventDefault();
-      if (!revealed) { setRevealed(true); return; }
+      if (!revealed) { start(); return; }
       if (countdown !== null) return;
       if (playing) stop(); else start();
     };
@@ -248,7 +236,7 @@ export default function ContribSnake({ onReveal }: Props) {
     s.pendingDir = dir;
   }, []);
 
-  if (!revealed) return <div ref={sentinelRef} style={{ height: 1 }} />;
+  if (!revealed) return null;
 
   const { W, H } = cfg;
   const cdColor = countdown === 1 ? "var(--magenta)" : countdown === 2 ? "var(--yellow)" : "var(--green)";

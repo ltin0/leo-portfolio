@@ -42,6 +42,7 @@ function DPadBtn({ label, onPress }: { label: string; onPress: () => void }) {
 export default function ContribSnake({ onReveal }: Props) {
   const { t } = useT();
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const sentinelRef = useRef<HTMLDivElement>(null);
   const [revealed, setRevealed] = useState(false);
   const [playing, setPlaying] = useState(false);
   const [countdown, setCountdown] = useState<number | null>(null);
@@ -147,17 +148,22 @@ export default function ContribSnake({ onReveal }: Props) {
     return () => clearTimeout(timer);
   }, [countdown, beginGame]);
 
-  // First reveal
+  // First reveal — auto-start only on desktop; on touch devices just show the grid
   useEffect(() => {
-    if (revealed) { onReveal?.(); start(); }
+    if (revealed) { onReveal?.(); if (!isTouch) start(); }
   }, [revealed]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Touch-to-reveal (any tap on the page)
+  // Reveal when section scrolls into view (replaces global touchstart listener)
   useEffect(() => {
     if (revealed) return;
-    const onTouch = () => setRevealed(true);
-    window.addEventListener("touchstart", onTouch, { once: true, passive: true });
-    return () => window.removeEventListener("touchstart", onTouch);
+    const el = sentinelRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) setRevealed(true); },
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
   }, [revealed]);
 
   // Game loop
@@ -242,7 +248,7 @@ export default function ContribSnake({ onReveal }: Props) {
     s.pendingDir = dir;
   }, []);
 
-  if (!revealed) return null;
+  if (!revealed) return <div ref={sentinelRef} style={{ height: 1 }} />;
 
   const { W, H } = cfg;
   const cdColor = countdown === 1 ? "var(--magenta)" : countdown === 2 ? "var(--yellow)" : "var(--green)";

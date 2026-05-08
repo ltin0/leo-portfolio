@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useT } from "@/lib/context";
 import SectionHeader from "@/components/ui/SectionHeader";
 import { PROJECTS_META } from "@/lib/data";
@@ -11,7 +12,7 @@ const CATEGORIES = [
   { label: "ECOSSISTEMA RUK",         count: 3 },
   { label: "APPS & DASHBOARDS",       count: 3 },
   { label: "PORTAIS DE CONTEÚDO",     count: 3 },
-  { label: "INSTITUCIONAIS / LANDING PAGES", count: 7 },
+  { label: "INSTITUCIONAIS / LANDING PAGES", count: 6 },
   { label: "LOJAS VIRTUAIS",          count: 3 },
 ];
 
@@ -62,9 +63,26 @@ export default function ProjectsSection() {
                     >
                       <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: 2, background: color }} />
 
-                      <div style={{ height: 120, background: "var(--surface2)", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 8 }}>
-                        <span style={{ fontSize: 26 }}>{meta.icon}</span>
-                        <span style={{ fontFamily: "var(--mono)", fontSize: 10, color: "var(--text-dim)" }}>{txt.title.toUpperCase()}</span>
+                      <div style={{ height: 160, background: "var(--surface2)", borderBottom: "1px solid var(--border)", position: "relative", overflow: "hidden" }}>
+                        {meta.image ? (
+                          <>
+                            <Image
+                              src={meta.image}
+                              alt={txt.title}
+                              fill
+                              style={{ objectFit: "cover", objectPosition: "top" }}
+                              sizes="(max-width: 768px) 100vw, 33vw"
+                            />
+                            {/* overlay */}
+                            <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(7,9,15,0.15) 0%, rgba(7,9,15,0.55) 100%)" }} />
+                            <div style={{ position: "absolute", inset: 0, background: `${color}12` }} />
+                          </>
+                        ) : (
+                          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "100%", flexDirection: "column", gap: 8 }}>
+                            <span style={{ fontSize: 26 }}>{meta.icon}</span>
+                            <span style={{ fontFamily: "var(--mono)", fontSize: 10, color: "var(--text-dim)" }}>{txt.title.toUpperCase()}</span>
+                          </div>
+                        )}
                       </div>
 
                       <span style={{ fontFamily: "var(--pixel)", fontSize: 7, padding: "4px 8px", display: "inline-block", margin: "12px 12px 0", color, border: `1px solid ${color}`, background: rarityBg[meta.rarity] }}>

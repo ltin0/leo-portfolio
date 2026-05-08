@@ -102,8 +102,8 @@ export default function HeroSection() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 12 }}>
               {[
                 { num: "5+", label: t.hero.stat1 },
-                { num: "30+", label: t.hero.stat2 },
-                { num: "8", label: t.hero.stat3 },
+                { num: "12+", label: t.hero.stat2 },
+                { num: "10+", label: t.hero.stat3 },
               ].map(({ num, label }) => (
                 <div key={label} style={{ border: "1px solid var(--border)", padding: 12, background: "var(--surface)" }}>
                   <div style={{ fontFamily: "var(--pixel)", fontSize: 16, color: "var(--cyan)" }}>{num}</div>
@@ -114,6 +114,32 @@ export default function HeroSection() {
             <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
               <PixelBtn href="#projects" variant="primary">{t.hero.ctaProjects}</PixelBtn>
               <PixelBtn href="#contact" variant="secondary">{t.hero.ctaContact}</PixelBtn>
+            </div>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <a
+                href="/cv-leonardo-tino-pt.pdf"
+                download
+                style={{
+                  fontFamily: "var(--pixel)", fontSize: 7, color: "var(--yellow)",
+                  border: "1px solid var(--yellow)", padding: "8px 12px",
+                  textDecoration: "none", letterSpacing: 0.5,
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                }}
+              >
+                ↓ {t.hero.cvPt}
+              </a>
+              <a
+                href="/cv-leonardo-tino-en.pdf"
+                download
+                style={{
+                  fontFamily: "var(--pixel)", fontSize: 7, color: "var(--text-dim)",
+                  border: "1px solid var(--border)", padding: "8px 12px",
+                  textDecoration: "none", letterSpacing: 0.5,
+                  display: "inline-flex", alignItems: "center", gap: 6,
+                }}
+              >
+                ↓ {t.hero.cvEn}
+              </a>
             </div>
           </div>
         </div>

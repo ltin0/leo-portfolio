@@ -9,6 +9,7 @@ export interface ProjectMeta {
   tags: string[];
   rarity: "legendary" | "epic" | "rare";
   icon: string;
+  link?: string;
 }
 
 export interface ExpMeta {
@@ -27,12 +28,22 @@ export const SKILLS_DATA: Skill[] = [
 ];
 
 export const PROJECTS_META: ProjectMeta[] = [
-  { tags: ["React", "Node.js", "MySQL"],      rarity: "legendary", icon: "🛒" },
-  { tags: ["React", "PHP", "Docker"],         rarity: "epic",      icon: "📊" },
-  { tags: ["WordPress", "React", "REST API"], rarity: "rare",      icon: "⚡" },
-  { tags: ["Node.js", "Docker", "MySQL"],     rarity: "epic",      icon: "🔗" },
-  { tags: ["React", "PHP", "CSS"],            rarity: "rare",      icon: "🎨" },
-  { tags: ["Python", "Docker", "Bash"],       rarity: "legendary", icon: "🤖" },
+  // Ecossistema Ruk
+  { tags: ["React", "Node.js", "JWT", "API"],       rarity: "legendary", icon: "✍️",  link: "https://ruk.com.br" },
+  { tags: ["PHP", "REST API", "MySQL", "Legal"],    rarity: "legendary", icon: "⚖️",  link: "https://ruk.com.br" },
+  { tags: ["Next.js", "SEO", "Performance", "UX"],  rarity: "epic",      icon: "🌐",  link: "https://ruk.com.br" },
+  // Apps & Dashboards
+  { tags: ["React", "Finance", "Calculator"],       rarity: "epic",      icon: "💰",  link: "https://play.google.com/store/apps/details?id=br.com.amortizei" },
+  { tags: ["PHP", "FGTS", "Secure API"],            rarity: "rare",      icon: "🏦",  link: "https://consultafgts.mistermoney.app" },
+  { tags: ["WordPress", "SAP", "REST API", "ERP"],  rarity: "legendary", icon: "📊",  link: "https://www.qaaps.com.br" },
+  // Portais
+  { tags: ["WordPress", "SEO", "High Traffic", "NGINX"], rarity: "epic", icon: "📰", link: "https://abcmais.com" },
+  { tags: ["WordPress", "Core Web Vitals", "MySQL"],     rarity: "rare", icon: "👗", link: "https://fashionbubbles.com" },
+  // Institucionais / Landing Pages
+  { tags: ["React", "HTML/CSS", "SEO"],             rarity: "rare",      icon: "🏢",  link: "https://agencia3graus.com.br" },
+  { tags: ["React", "UI/UX", "Animations"],         rarity: "epic",      icon: "✨",  link: "https://mudhealth.com.br" },
+  { tags: ["HTML/CSS", "Conversion", "Mobile"],     rarity: "rare",      icon: "🐕",  link: "https://lokidogschool.com.br" },
+  { tags: ["HTML/CSS", "Conversion", "Landing"],    rarity: "rare",      icon: "🔩",  link: "https://darkgray-jay-165588.hostingersite.com" },
 ];
 
 export const EXP_META: ExpMeta[] = [

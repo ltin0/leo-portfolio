@@ -16,6 +16,7 @@ export const TRANSLATIONS = {
       desc: "Criando soluções digitais inovadoras com React, Node.js, PHP e Docker. Foco em performance, usabilidade e experiência do usuário.",
       stat1: "Anos de XP", stat2: "Projetos", stat3: "Tecnologias",
       ctaProjects: "VER PROJETOS", ctaContact: "CONTATO",
+      cvPt: "[ CV PORTUGUÊS ]", cvEn: "[ CV ENGLISH ]",
     },
     contrib: {
       title: "GITHUB CONTRIBUTIONS · 1 ANO",
@@ -41,14 +42,20 @@ export const TRANSLATIONS = {
     skills: { num: "02.", title: "SKILLS", em: "& STATS" },
     projects: {
       num: "03.", title: "PROJETOS", em: "/ INVENTÁRIO",
-      github: "[ GITHUB ]", demo: "[ DEMO ]",
+      github: "[ GITHUB ]", demo: "[ VER PROJETO ]",
       list: [
-        { title: "E-Commerce Platform",     desc: "Sistema completo de e-commerce com painel admin, integração de pagamentos e catálogo dinâmico." },
-        { title: "Corporate Dashboard",     desc: "Dashboard analítico com gráficos em tempo real, relatórios exportáveis e gestão de usuários." },
-        { title: "WordPress Headless CMS",  desc: "Solução headless com WordPress como backend e frontend em React, com SSR e otimização de SEO." },
-        { title: "REST API Service",        desc: "Microserviço backend escalável com autenticação JWT, rate limiting e documentação Swagger." },
-        { title: "Landing Page Builder",    desc: "Ferramenta interna para criação de landing pages com editor visual e deploy automático." },
-        { title: "Automation Script Suite", desc: "Conjunto de scripts de automação para deploy, backup e monitoramento de servidores." },
+        { title: "Ruk Sign",             desc: "Plataforma de gestão de contratos e assinaturas eletrônicas. Arquitetura de alta segurança, integrações complexas de API e fluxos de autenticação customizados (login via CPF) para garantir a integridade legal dos documentos." },
+        { title: "Ruk Juri",             desc: "Sistema jurídico com integração e automação de APIs de dados legais. Desenhado para processar e estruturar informações jurídicas de forma ágil e segura para os usuários finais." },
+        { title: "Site Institucional Ruk", desc: "Portal corporativo da plataforma Ruk. Foco em performance, SEO técnico e usabilidade para maximizar conversão de leads e apresentar as soluções SaaS de forma sofisticada." },
+        { title: "App Amortizei",        desc: "Plataforma financeira para cálculo e projeção de amortizações. Calculadoras interativas com lógica matemática complexa, entregando interface fluida para otimização de finanças." },
+        { title: "Mister Money App",     desc: "Aplicação web para consulta e antecipação de FGTS. Alta confiabilidade na integração com serviços externos e tratamento seguro de dados sensíveis dos usuários." },
+        { title: "Qaaps Dashboard",      desc: "Painel corporativo com integração robusta entre WordPress e ERP SAP. Sincronização de dados corporativos com rotas RESTful e manipulação de grandes volumes de dados." },
+        { title: "Portal ABC Mais",      desc: "Portal de notícias de alto tráfego. SEO rigoroso, otimização de carregamento e gestão de servidor NGINX para alta disponibilidade em picos de acessos simultâneos." },
+        { title: "Fashion Bubbles",      desc: "Modernização de um dos maiores portais de moda e lifestyle. Estruturação de banco de dados, responsividade e melhorias contínuas de Core Web Vitals." },
+        { title: "Agência 3Graus & Quality SMI", desc: "Desenvolvimento front-end e estruturação de sites corporativos. Experiências de navegação dinâmicas e responsivas com boas práticas de SEO e indexação." },
+        { title: "Mudhealth & Hyperflow Global", desc: "Sites institucionais modernos refletindo a identidade visual das marcas. Foco total em UI/UX, animações fluidas e arquitetura da informação sofisticada." },
+        { title: "Loki Dog School",      desc: "Landing page focada em altíssima taxa de conversão. Estrutura otimizada para campanhas de tráfego pago, com respostas rápidas de servidor e usabilidade mobile impecável." },
+        { title: "AVT Fixadores",        desc: "Landing page institucional para distribuidora de fixadores industriais. Design clean e carregamento ultra-rápido otimizado para conversão de leads B2B." },
       ],
     },
     exp: {
@@ -98,6 +105,7 @@ export const TRANSLATIONS = {
       desc: "Crafting innovative digital solutions with React, Node.js, PHP and Docker. Focused on performance, usability and user experience.",
       stat1: "Years XP", stat2: "Projects", stat3: "Technologies",
       ctaProjects: "VIEW PROJECTS", ctaContact: "CONTACT",
+      cvPt: "[ CV PORTUGUÊS ]", cvEn: "[ CV ENGLISH ]",
     },
     contrib: {
       title: "GITHUB CONTRIBUTIONS · 1 YEAR",
@@ -123,14 +131,20 @@ export const TRANSLATIONS = {
     skills: { num: "02.", title: "SKILLS", em: "& STATS" },
     projects: {
       num: "03.", title: "PROJECTS", em: "/ INVENTORY",
-      github: "[ GITHUB ]", demo: "[ DEMO ]",
+      github: "[ GITHUB ]", demo: "[ VIEW PROJECT ]",
       list: [
-        { title: "E-Commerce Platform",     desc: "Complete e-commerce system with admin panel, payment integration and dynamic catalog." },
-        { title: "Corporate Dashboard",     desc: "Analytics dashboard with real-time charts, exportable reports and user management." },
-        { title: "WordPress Headless CMS",  desc: "Headless solution with WordPress as backend and React frontend, SSR and SEO optimization." },
-        { title: "REST API Service",        desc: "Scalable backend microservice with JWT authentication, rate limiting and Swagger docs." },
-        { title: "Landing Page Builder",    desc: "Internal tool for creating landing pages with visual editor and automated deployment." },
-        { title: "Automation Script Suite", desc: "Set of automation scripts for deployment, backup and server monitoring." },
+        { title: "Ruk Sign",             desc: "Contract management and electronic signature platform. High-security architecture, complex API integrations and custom auth flows (CPF-based login) ensuring full legal document integrity." },
+        { title: "Ruk Juri",             desc: "Legal sector system focused on integration and automation of legal data APIs. Designed to process and structure legal information quickly and securely for end users." },
+        { title: "Ruk Institutional",    desc: "Corporate portal for the Ruk SaaS platform. Focused on performance, technical SEO and usability to maximize lead conversion and present the company's solutions in a clear, sophisticated way." },
+        { title: "Amortizei App",        desc: "Financial platform for amortization calculation and projection. Interactive calculators with complex math logic, delivering a fluid interface to help users optimize their finances." },
+        { title: "Mister Money App",     desc: "Web application for FGTS consultation and anticipation. High reliability in external service integrations and secure handling of sensitive user data." },
+        { title: "Qaaps Dashboard",      desc: "Corporate control panel with robust WordPress–SAP ERP integration. Facilitates corporate data synchronization with RESTful routes and large-volume data processing." },
+        { title: "ABC Mais Portal",      desc: "High-traffic news portal. Rigorous SEO strategies, load-time optimization and NGINX server management to ensure high availability during simultaneous access peaks." },
+        { title: "Fashion Bubbles",      desc: "Modernization of one of Brazil's largest fashion and lifestyle portals. Database restructuring, interface responsiveness and continuous Core Web Vitals improvements." },
+        { title: "3Graus & Quality SMI", desc: "Front-end development and corporate site structuring. Dynamic, responsive navigation experiences with strong SEO and indexing best practices." },
+        { title: "Mudhealth & Hyperflow", desc: "Modern institutional sites reflecting each brand's visual identity. Full focus on UI/UX, fluid animations and sophisticated information architecture." },
+        { title: "Loki Dog School",      desc: "Landing page focused on maximum conversion rate. Optimized structure for paid traffic campaigns, fast server response and impeccable mobile usability." },
+        { title: "AVT Fixadores",        desc: "Institutional landing page for an industrial fastener distributor. Clean design and ultra-fast loading optimized for B2B lead conversion." },
       ],
     },
     exp: {
@@ -170,7 +184,7 @@ export const TRANSLATIONS = {
 export type Translations = {
   bootMsgs: readonly string[];
   nav: { about: string; skills: string; projects: string; xp: string; contact: string };
-  hero: { selectHero: string; p1Confirmed: string; nameLabel: string; classLine: string; pressStart: string; pressStartTrail: string; greeting: string; role: string; desc: string; stat1: string; stat2: string; stat3: string; ctaProjects: string; ctaContact: string };
+  hero: { selectHero: string; p1Confirmed: string; nameLabel: string; classLine: string; pressStart: string; pressStartTrail: string; greeting: string; role: string; desc: string; stat1: string; stat2: string; stat3: string; ctaProjects: string; ctaContact: string; cvPt: string; cvEn: string };
   contrib: { title: string; play: string; stop: string; retry: string; score: string; gameOver: string; hint: string; dayHint: string; less: string; more: string; pressSpace: string; tryAgain: string; escHint: string };
   about: { num: string; title: string; em: string; logHeader: string; p1: string; p2: string; p3: string; cardTitle: string; location: string; locationVal: string; available: string; availableVal: string; languages: string; languagesVal: string; linksTitle: string };
   skills: { num: string; title: string; em: string };

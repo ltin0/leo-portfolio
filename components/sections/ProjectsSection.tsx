@@ -20,6 +20,7 @@ export default function ProjectsSection() {
   const { t } = useT();
 
   let idx = 0;
+  let imgIdx = 0;
 
   return (
     <section
@@ -50,6 +51,7 @@ export default function ProjectsSection() {
                 {slice.map((meta, i) => {
                   const txt = txtSlice[i];
                   const color = rarityColors[meta.rarity];
+                  const isFirst = meta.image ? imgIdx++ === 0 : false;
                   return (
                     <div
                       key={i}
@@ -72,6 +74,7 @@ export default function ProjectsSection() {
                               fill
                               style={{ objectFit: "cover", objectPosition: "top" }}
                               sizes="(max-width: 768px) 100vw, 33vw"
+                              {...(isFirst ? { priority: true } : { loading: "lazy" })}
                             />
                             {/* overlay */}
                             <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to bottom, rgba(7,9,15,0.15) 0%, rgba(7,9,15,0.55) 100%)" }} />

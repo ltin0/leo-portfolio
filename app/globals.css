@@ -156,6 +156,11 @@ body {
 .skill-bar-fill.woocommerce{ background: linear-gradient(90deg, #2a0a30, #9b5c8f); }
 .skill-bar-fill.figma      { background: linear-gradient(90deg, #2e0a2e, #ff7262); }
 .skill-bar-fill.seo        { background: linear-gradient(90deg, #0a2e18, #39ff14); }
+.skill-bar-fill.nestjs     { background: linear-gradient(90deg, #1a0a1a, #e0234e); }
+.skill-bar-fill.graphql    { background: linear-gradient(90deg, #2a0a2a, #e535ab); }
+.skill-bar-fill.prisma     { background: linear-gradient(90deg, #0a1a2a, #5a67d8); }
+.skill-bar-fill.jest       { background: linear-gradient(90deg, #1a1a0a, #c21325); }
+.skill-bar-fill.playwright { background: linear-gradient(90deg, #0a2a1a, #2ead33); }
 
 .scanlines {
   position: absolute; inset: 0; pointer-events: none;

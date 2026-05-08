@@ -27,13 +27,16 @@ export const SKILLS_DATA: Skill[] = [
   { name: "Tailwind",    pct: 88, cls: "tailwind",   cat: "FRONT-END" },
   // BACK-END
   { name: "Node.js",     pct: 85, cls: "nodejs",     cat: "BACK-END"  },
+  { name: "NestJS",      pct: 80, cls: "nestjs",     cat: "BACK-END"  },
   { name: "PHP",         pct: 80, cls: "php",         cat: "BACK-END"  },
   { name: "Laravel",     pct: 72, cls: "laravel",    cat: "BACK-END"  },
   { name: "Python",      pct: 70, cls: "python",     cat: "BACK-END"  },
   { name: "REST API",    pct: 90, cls: "restapi",    cat: "BACK-END"  },
+  { name: "GraphQL",     pct: 78, cls: "graphql",    cat: "BACK-END"  },
   // DATA
   { name: "MySQL",       pct: 82, cls: "mysql",      cat: "DATA"      },
   { name: "PostgreSQL",  pct: 72, cls: "postgresql", cat: "DATA"      },
+  { name: "Prisma ORM",  pct: 78, cls: "prisma",     cat: "DATA"      },
   // INFRA
   { name: "Docker",      pct: 78, cls: "docker",     cat: "INFRA"     },
   { name: "NGINX",       pct: 80, cls: "nginx",      cat: "INFRA"     },
@@ -45,6 +48,8 @@ export const SKILLS_DATA: Skill[] = [
   // TOOLS
   { name: "Figma",       pct: 74, cls: "figma",      cat: "TOOLS"     },
   { name: "SEO / Perf",  pct: 86, cls: "seo",        cat: "TOOLS"     },
+  { name: "Jest",        pct: 75, cls: "jest",        cat: "TOOLS"     },
+  { name: "Playwright",  pct: 70, cls: "playwright",  cat: "TOOLS"     },
 ];
 
 export const PROJECTS_META: ProjectMeta[] = [

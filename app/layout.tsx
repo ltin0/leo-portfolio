@@ -27,19 +27,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Leonardo Tino — Full Stack Engineer",
-  description: "Portfolio de Leonardo Tino, Full Stack Developer com experiência em React, Node.js, PHP, Python, Docker e WordPress.",
-  keywords: ["Full Stack Developer", "React", "Node.js", "PHP", "Docker", "Leonardo Tino"],
+  metadataBase: new URL("https://leotino.dev"),
+  title: "Leonardo Tino — Full-Stack Product Engineer",
+  description: "Portfólio de Leonardo Tino: produtos SaaS B2B, automações com IA, plataformas de alto tráfego e engenharia full stack com TypeScript, Next.js e NestJS.",
+  keywords: ["Full-Stack Product Engineer", "TypeScript", "Next.js", "NestJS", "SaaS", "AI Automation", "WordPress", "Leonardo Tino"],
   openGraph: {
-    title: "Leonardo Tino — Full Stack Engineer",
-    description: "Full Stack Developer | React · Node.js · PHP · Docker",
+    title: "Leonardo Tino — Full-Stack Product Engineer",
+    description: "B2B SaaS · AI automation · high-traffic web platforms",
     type: "website",
     url: "https://leotino.dev",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Leonardo Tino — Full Stack Engineer",
-    description: "Full Stack Developer | React · Node.js · PHP · Docker",
+    title: "Leonardo Tino — Full-Stack Product Engineer",
+    description: "B2B SaaS · AI automation · high-traffic web platforms",
   },
 };
 

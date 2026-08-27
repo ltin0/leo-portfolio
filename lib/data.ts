@@ -58,9 +58,9 @@ export const PROJECTS_META: ProjectMeta[] = [
   { tags: ["PHP", "REST API", "MySQL", "Legal"],           rarity: "legendary", icon: "⚖️",  link: "https://app.ruk.com.br",                                         image: "/projects/ruk-juri.png" },
   { tags: ["Next.js", "SEO", "Performance", "UX"],         rarity: "epic",      icon: "🌐",  link: "https://ruk.com.br",                                             image: "/projects/ruk.com.br.png" },
   // Apps & Dashboards (3)
-  { tags: ["React", "Finance", "Calculator"],              rarity: "epic",      icon: "💰",  link: "https://play.google.com/store/apps/details?id=br.com.amortizei", github: "https://github.com/ltin0/app-amortizei/",                    image: "/projects/amortizei.com.br.png" },
-  { tags: ["PHP", "FGTS", "Secure API"],                   rarity: "rare",      icon: "🏦",  link: "https://consultafgts.mistermoney.app",                           github: "https://github.com/ltin0/mister-monkey-app",                image: "/projects/mistermoney.png" },
-  { tags: ["WordPress", "SAP", "REST API", "ERP"],         rarity: "legendary", icon: "📊",  link: "https://www.qaaps.com.br",                                      github: "https://github.com/ltin0/qaaps-dasbhoard/tree/master",      image: "/projects/qaaps.png" },
+  { tags: ["React", "Finance", "Calculator"],              rarity: "epic",      icon: "💰",  link: "https://play.google.com/store/apps/details?id=br.com.amortizei", image: "/projects/amortizei.com.br.png" },
+  { tags: ["PHP", "FGTS", "Secure API"],                   rarity: "rare",      icon: "🏦",  link: "https://consultafgts.mistermoney.app",                           image: "/projects/mistermoney.png" },
+  { tags: ["WordPress", "SAP", "REST API", "ERP"],         rarity: "legendary", icon: "📊",  link: "https://www.qaaps.com.br",                                      image: "/projects/qaaps.png" },
   // Portais (3)
   { tags: ["WordPress", "SEO", "High Traffic", "NGINX"],   rarity: "epic",      icon: "📰",  link: "https://abcmais.com",                                            image: "/projects/abcmais.com.br.png" },
   { tags: ["WordPress", "Core Web Vitals", "MySQL"],        rarity: "rare",      icon: "👗",  link: "https://fashionbubbles.com",                                     image: "/projects/fashionbubbles.com.br.png" },

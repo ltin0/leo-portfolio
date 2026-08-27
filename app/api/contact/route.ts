@@ -1,38 +1,86 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
+export const runtime = "nodejs";
+
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_NAME_LENGTH = 100;
+const MAX_EMAIL_LENGTH = 254;
+const MAX_MESSAGE_LENGTH = 5_000;
+
+function badRequest(error: string) {
+  return NextResponse.json({ error }, { status: 400 });
+}
+
 export async function POST(req: NextRequest) {
-  const { name, email, message } = await req.json();
+  let body: unknown;
+
+  try {
+    body = await req.json();
+  } catch {
+    return badRequest("Invalid JSON body");
+  }
+
+  if (!body || typeof body !== "object") {
+    return badRequest("Invalid request body");
+  }
+
+  const payload = body as Record<string, unknown>;
+  if (
+    typeof payload.name !== "string" ||
+    typeof payload.email !== "string" ||
+    typeof payload.message !== "string"
+  ) {
+    return badRequest("Missing fields");
+  }
+
+  const name = payload.name.trim();
+  const email = payload.email.trim();
+  const message = payload.message.trim();
 
   if (!name || !email || !message) {
-    return NextResponse.json({ error: "Missing fields" }, { status: 400 });
+    return badRequest("Missing fields");
+  }
+
+  if (
+    name.length > MAX_NAME_LENGTH ||
+    email.length > MAX_EMAIL_LENGTH ||
+    message.length > MAX_MESSAGE_LENGTH ||
+    /[\r\n]/.test(name) ||
+    /[\r\n]/.test(email) ||
+    !EMAIL_PATTERN.test(email)
+  ) {
+    return badRequest("Invalid fields");
+  }
+
+  const { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_TO } = process.env;
+  if (!SMTP_HOST || !SMTP_PORT || !SMTP_USER || !SMTP_PASS || !SMTP_TO) {
+    console.error("Contact form SMTP configuration is incomplete");
+    return NextResponse.json({ error: "Service unavailable" }, { status: 503 });
   }
 
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
-    secure: true, // SSL on port 465
+    host: SMTP_HOST,
+    port: Number(SMTP_PORT),
+    secure: Number(SMTP_PORT) === 465,
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: SMTP_USER,
+      pass: SMTP_PASS,
     },
   });
 
-  await transporter.sendMail({
-    from: `"${name}" <${process.env.SMTP_USER}>`,
-    replyTo: email,
-    to: process.env.SMTP_TO,
-    subject: `[Portfolio] Mensagem de ${name}`,
-    html: `
-      <div style="font-family:monospace;background:#07090f;color:#c8d8e8;padding:32px;border-left:3px solid #00e5ff;">
-        <p style="color:#00e5ff;font-size:12px;margin-bottom:16px;">◆ NOVA MENSAGEM VIA PORTFOLIO</p>
-        <p><strong style="color:#ffd700;">Nome:</strong> ${name}</p>
-        <p><strong style="color:#ffd700;">Email:</strong> <a href="mailto:${email}" style="color:#00e5ff;">${email}</a></p>
-        <hr style="border-color:#1e3352;margin:16px 0;" />
-        <p style="white-space:pre-wrap;">${message}</p>
-      </div>
-    `,
-  });
+  try {
+    await transporter.sendMail({
+      from: `Portfolio <${SMTP_USER}>`,
+      replyTo: email,
+      to: SMTP_TO,
+      subject: `[Portfolio] Mensagem de ${name}`,
+      text: `Nova mensagem via portfólio\n\nNome: ${name}\nEmail: ${email}\n\n${message}`,
+    });
+  } catch (error) {
+    console.error("Contact form delivery failed", error);
+    return NextResponse.json({ error: "Delivery failed" }, { status: 502 });
+  }
 
   return NextResponse.json({ ok: true });
 }
